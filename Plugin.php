@@ -74,7 +74,7 @@ JS;
         $dismissOnScroll = empty($settings::get('dismissOnScroll'))?false:$settings::get('dismissOnScroll');
         $dismissOnTimeout = empty($settings::get('dismissOnTimeout'))?false:$settings::get('dismissOnTimeout');
         $static = empty($settings::get('static'))?"false":"true";
-        $revokable = empty($settings::get('revokable'))?false:true;
+        $revokable = empty($settings::get('revokable'))?"false":"true";
         $revokeBtnTemplate = json_encode($settings::get('revokeBtn'));
         $initJS = <<<JS
 

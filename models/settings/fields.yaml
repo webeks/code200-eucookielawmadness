@@ -77,9 +77,9 @@ fields:
       label: Pallete
       type: textarea
       default:  |
-                  popup:{"background":"#eaf7f7","text":"#5c7291"},
-                  button:{"background":"#56cbdb","text":"#ffffff"},
-                  highlight: {background: '#ffffff', border: '#ffffff', text: '#eaf7f7'}
+                  popup:{"background":"#edeff5","text":"#838391"},
+                  button:{"background":"#4b81e8","text":"#edeff5"},
+                  highlight: {background: '#ffffff', border: '#ffffff', text: '#838391'}
       comment: This is the HTML for the elements above. Any word surrounded by ‘{{‘ and ‘}}’ will be automatically replaced. The string {{header}} will be replaced with the equivalent text above. You can remove “{{header}}” and write the content directly inside the HTML if you want.
       size: small
     elements:

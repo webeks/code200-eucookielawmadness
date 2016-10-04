@@ -1,0 +1,6 @@
+plugin:
+    name: 'code200.eucookielawmadness::lang.plugin.name'
+    description: 'code200.eucookielawmadness::lang.plugin.description'
+    author: 'Miha Trtnik'
+    icon: oc-icon-adjust
+    homepage: ''

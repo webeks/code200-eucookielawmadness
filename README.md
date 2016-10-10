@@ -1,6 +1,6 @@
-#main
-EU law requires sites to let the user know if cookies are stored on their
-computer. Depending on EU country there are different types of compliance implementation. Usually scripts like this one only offer notifications and they dont implement real opt-in or opt-out compliance.
+# EU law cookie madness
+EU laws require sites to let the user know if cookies are stored on their
+devices. Depending on EU country there are different types of compliance implementation. Usually scripts like this one only offer notifications and they dont implement real opt-in or opt-out compliance.
  
 This script offers OctoberCMS implementation of [Cookie Consent JS](https://github.com/insites/cookieconsent/), additional Twig template function for easier checks whether or not to serve cookies and additional JS that cleans all cookies if user declines to accept cookies. 
 
@@ -10,7 +10,7 @@ the theme to have the `scripts` and `styles` placeholder.
 
 # Configuration 
 Simply configure the settings from the backend interface and then it automatically
-runs on the frontend.
+runs on the frontend. Please see how to prevent cookies section as well. Remember that you are soly responsible for any law and regulation compliance.
 
 ## Compliance types
 * info (allways serve cookies)
@@ -48,3 +48,5 @@ Cookie can have values:
 The [Cookie Consent JS](https://github.com/insites/cookieconsent/) we link
 to is developed by [Insites](https://cookieconsent.insites.com/) and
 released under [MIT](https://en.wikipedia.org/wiki/MIT_License).
+
+Icon made by [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com and released under [CC 3.0](http://creativecommons.org/licenses/by/3.0).

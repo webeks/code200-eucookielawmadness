@@ -5,10 +5,10 @@ devices. Depending on EU country there are different types of compliance impleme
 This script offers OctoberCMS implementation of [Cookie Consent JS](https://github.com/insites/cookieconsent/), additional Twig template function for easier checks whether or not to serve cookies and additional JS that cleans all cookies if user declines to accept cookies. 
 
 
+# Configuration 
 This plugin integrates the popular Cookie Consent tool in your theme. It requires
 the theme to have the `scripts` and `styles` placeholder.
 
-# Configuration 
 Simply configure the settings from the backend interface and then it automatically
 runs on the frontend. Please see how to prevent cookies section as well. Remember that you are soly responsible for any law and regulation compliance.
 

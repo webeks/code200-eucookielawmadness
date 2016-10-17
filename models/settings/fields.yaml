@@ -4,10 +4,9 @@
 
 fields:
 
-
     section_content:
-      type: section
-      label: Content
+        type: section
+        label: Content
 
     header:
         label: Header
@@ -26,37 +25,37 @@ fields:
         type: text
         default: Got it
         comment: The text used on the dismiss button.
+        span: auto
 
     allow:
         label: Allow Text
         type: text
         default: Allow
         comment: The text used on the allow cookies button.
+        span: auto
 
     deny:
-      label: Deny Text
-      type: text
-      default: Decline!
-      comment: The text used on the decline cookies button.
+        label: Deny Text
+        type: text
+        default: Decline!
+        comment: The text used on the decline cookies button.
+        span: auto
 
     link:
         label: Learn More Link Text
         type: text
         default: More info
         comment: The text shown on the link to the cookie policy (requires the link option to also be set)
+        span: auto
 
     href:
         label: Link
         type: text
         comment: The url of your cookie policy. If not set, the link is hidden.
 
-
-
-
-
     section_template:
-      type: section
-      label: Template
+        type: section
+        label: Template
 
     container:
         label: CSS-selector for container
@@ -74,14 +73,15 @@ fields:
         comment: Cookie Consent is themed, so users can create their own themes. The chosen theme is added to the popup container as a CSS class in the form of .cc-style-THEME_NAME
 
     palette:
-      label: Pallete
-      type: textarea
-      default:  |
+        label: Pallete
+        type: textarea
+        default:  |
                   popup:{"background":"#edeff5","text":"#838391"},
                   button:{"background":"#4b81e8","text":"#edeff5"},
                   highlight: {background: '#ffffff', border: '#ffffff', text: '#838391'}
-      comment: This is the HTML for the elements above. Any word surrounded by ‘{{‘ and ‘}}’ will be automatically replaced. The string {{header}} will be replaced with the equivalent text above. You can remove “{{header}}” and write the content directly inside the HTML if you want.
-      size: small
+        comment: This is the HTML for the elements above. Any word surrounded by ‘{{‘ and ‘}}’ will be automatically replaced. The string {{header}} will be replaced with the equivalent text above. You can remove “{{header}}” and write the content directly inside the HTML if you want.
+        size: small
+
     elements:
         label: Elements template
         type: textarea
@@ -120,11 +120,9 @@ fields:
         comment: If you want an ‘opt-in’ level of compliance, then you have two buttons where the default choice is ‘cookies are disable by default’. There are other levels of compliance too. The ones we have by default are stored in the ‘compliance’ option. You can see that the only difference between the compliance levels are the buttons which are used, and how cookies are handled by default
         size: small
 
-
     section_behaviour:
       type: section
       label: Behaviour settings
-
 
     type:
       label: Complience type
@@ -135,7 +133,6 @@ fields:
           opt-in: opt-in
           opt-out: opt-out
       default: info
-
 
     revokable:
         type: switch
@@ -158,16 +155,17 @@ fields:
 
     dismissOnScroll:
         label: Dismiss on scroll
-        type: text
+        type: number
         default: 0
         comment: Set value greater than 0 as scroll range to enable.
+        span: auto
 
     dismissOnTimeout:
         label: Dissmiss on timeout
-        type: text
+        type: number
         default: 0
         comment: Set value as time in milliseconds to autodismiss after set time.
-
+        span: auto
 
     section_cookies:
       type: section

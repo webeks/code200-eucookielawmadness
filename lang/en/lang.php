@@ -1,7 +1,7 @@
 <?php return [
     'plugin' => [
         'name' => 'EUCookieLawMadness',
-        'description' => ''
+        'description' => 'Display an EU cookie law popup.'
     ],
     'settings' => [
         'label' => "EU Cookie Law Madness",

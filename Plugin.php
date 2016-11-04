@@ -8,24 +8,21 @@ use System\Classes\PluginManager;
 use System\Classes\SettingsManager;
 use Block;
 
-
 class Plugin extends PluginBase
 {
     private $pathToPlugin;
 
-    const COOKIEVAL_DENY = "deny";
-    const COOKIEVAL_ALLOW = "allow";
-
+    const COOKIEVAL_DENY  = 'deny';
+    const COOKIEVAL_ALLOW = 'allow';
 
     public function __construct(\Illuminate\Contracts\Foundation\Application $app)
     {
         parent::__construct($app);
-        $this->pathToPlugin = substr(__DIR__, strlen($_SERVER['DOCUMENT_ROOT']));
+        $this->pathToPlugin = '/plugins/code200/eucookielawmadness';
     }
 
-
-    public function boot(){
-
+    public function boot()
+    {
         /** @var \Cms\Classes\Controller $controller  */
         Event::listen('cms.page.beforeDisplay', function($controller, $action, $params) {
             $controller->addJs($this->pathToPlugin . '/assets/cookieconsent.min.js');
@@ -33,10 +30,8 @@ class Plugin extends PluginBase
             $this->initJs();
 
             $cookieName = Settings::get('cookie_name');
-            $controller->vars["cookieconsent_status"] = empty($_COOKIE[ $cookieName ])?"":$_COOKIE[ $cookieName ];
-
+            $controller->vars["cookieconsent_status"] = empty($_COOKIE[ $cookieName ]) ? "" : $_COOKIE[ $cookieName ];
         });
-
     }
 
     public function registerMarkupTags()
@@ -47,7 +42,6 @@ class Plugin extends PluginBase
             ]
         ];
     }
-
 
     public function registerSettings()
     {
@@ -62,16 +56,13 @@ class Plugin extends PluginBase
         ];
     }
 
-
-    /**
-     *
-     */
-    private function initJs() {
+    private function initJs()
+    {
         $settings = new Settings();
         $dismissOnScroll = empty($settings::get('dismissOnScroll'))?false:$settings::get('dismissOnScroll');
         $dismissOnTimeout = empty($settings::get('dismissOnTimeout'))?false:$settings::get('dismissOnTimeout');
-        $static = empty($settings::get('static'))?"false":"true";
-        $revokable = empty($settings::get('revokable'))?"false":"true";
+        $static = empty($settings::get('static')) ? "false" : "true";
+        $revokable = empty($settings::get('revokable')) ? "false" : "true";
         $revokeBtnTemplate = json_encode($settings::get('revokeBtn'));
         $initJS = <<<JS
 
@@ -109,7 +100,6 @@ class Plugin extends PluginBase
             "cookie.domain": "{$settings::get('cookie_domain')}",
             "cookie.expiryDays": "{$settings::get('cookie_expiryDays')}",
 
-
             onStatusChange: function(status, chosenBefore) {
                 if(status == 'deny'){
                     clearAllCookiesExceptCookieNotice();
@@ -118,7 +108,6 @@ class Plugin extends PluginBase
                 window.location.reload();
             }
         });
-
 
         function getCookieDomain() {
             var cookieDomain = "{$settings::get("cookie_domain")}";
@@ -151,18 +140,19 @@ class Plugin extends PluginBase
             }
         }
 JS;
+
         Block::append('scripts', '<script>'.$initJS.'</script>');
     }
-
 
     /**
      * Function that checks if setting cookies is even allowed
      * @return bool
      */
-    public function allowServingCookies() {
+    public function allowServingCookies()
+    {
         $complianceType = Settings::get('type');
         $cookieName = Settings::get('cookie_name');
-        $cookieVal = empty($_COOKIE[ $cookieName ])?"":$_COOKIE[ $cookieName ];
+        $cookieVal = empty($_COOKIE[ $cookieName ]) ? "" : $_COOKIE[ $cookieName ];
 
         switch($complianceType) {
             case "opt-in":

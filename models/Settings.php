@@ -1,6 +1,5 @@
 <?php namespace Code200\Eucookielawmadness\models;
 
-
 use October\Rain\Database\Model;
 
 class Settings extends Model
@@ -12,5 +11,4 @@ class Settings extends Model
     public $settingsFields = 'fields.yaml';
 
     protected $cache = [];
-
 }

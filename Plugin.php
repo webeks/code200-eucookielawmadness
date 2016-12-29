@@ -51,8 +51,19 @@ class Plugin extends PluginBase
                 'description' => 'code200.eucookielawmadness::lang.settings.description',
                 'icon'        => 'icon-pencil-square-o',
                 'class'       => 'Code200\eucookielawmadness\models\Settings',
-                'category'    => SettingsManager::CATEGORY_MISC
+                'category'    => SettingsManager::CATEGORY_MISC,
+                'permissions' => ['code200.eucookielawmadness.access_settings'],
             ]
+        ];
+    }
+
+    public function registerPermissions()
+    {
+        return [
+            'code200.eucookielawmadness.access_settings' => [
+                'tab'   => 'code200.eucookielawmadness::lang.plugin.name',
+                'label' => 'code200.eucookielawmadness::lang.eucookielawmadness.manage_eucookielawmadness'
+            ],
         ];
     }
 

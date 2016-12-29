@@ -6,5 +6,8 @@
     'settings' => [
         'label' => "EU Cookie Law Madness",
         'description' => 'Manage cookie madness'
+    ],
+    'eucookielawmadness' => [
+        'manage_eucookielawmadness' => 'Manage EUCookieLawMadness'
     ]
 ];

@@ -6,84 +6,84 @@ fields:
 
     section_content:
         type: section
-        label: Content
+        label: code200.eucookielawmadness::lang.settings.section_content.label
 
     header:
-        label: Header
+        label: code200.eucookielawmadness::lang.settings.header.label
         type: text
         default: Cookies used on the website!
-        comment: Header shown by the plugin.
+        comment: code200.eucookielawmadness::lang.settings.header.comment
 
     message:
-        label: Message
+        label: code200.eucookielawmadness::lang.settings.message.label
         type: text
         default: This website uses cookies to ensure you get the best experience on our website
-        comment: The message shown by the plugin.
+        comment: code200.eucookielawmadness::lang.settings.message.comment
 
     dismiss:
-        label: Dismiss Text
+        label: code200.eucookielawmadness::lang.settings.dismiss.label
         type: text
         default: Got it
-        comment: The text used on the dismiss button.
+        comment: code200.eucookielawmadness::lang.settings.dismiss.comment
         span: auto
 
     allow:
-        label: Allow Text
+        label: code200.eucookielawmadness::lang.settings.allow.label
         type: text
         default: Allow
-        comment: The text used on the allow cookies button.
+        comment: code200.eucookielawmadness::lang.settings.allow.comment
         span: auto
 
     deny:
-        label: Deny Text
+        label: code200.eucookielawmadness::lang.settings.deny.label
         type: text
         default: Decline!
-        comment: The text used on the decline cookies button.
+        comment: code200.eucookielawmadness::lang.settings.deny.comment
         span: auto
 
     link:
-        label: Learn More Link Text
+        label: code200.eucookielawmadness::lang.settings.link.label
         type: text
         default: More info
-        comment: The text shown on the link to the cookie policy (requires the link option to also be set)
+        comment: code200.eucookielawmadness::lang.settings.link.comment
         span: auto
 
     href:
-        label: Link
+        label: code200.eucookielawmadness::lang.settings.href.label
         type: text
-        comment: The url of your cookie policy. If not set, the link is hidden.
+        comment: code200.eucookielawmadness::lang.settings.href.comment
 
     section_template:
         type: section
-        label: Template
+        label: code200.eucookielawmadness::lang.settings.section_template.label
 
     container:
-        label: CSS-selector for container
+        label: code200.eucookielawmadness::lang.settings.container.label
         type: text
-        comment: The element you want the Cookie Consent notification to be appended to. If not set, the Cookie Consent plugin is appended to the body.
+        comment: code200.eucookielawmadness::lang.settings.container.comment
 
     theme:
-        label: Theme
+        label: code200.eucookielawmadness::lang.settings.theme.label
         type: dropdown
         options:
             block: block
             edgeless: edgeless
             classic: classic
         default: block
-        comment: Cookie Consent is themed, so users can create their own themes. The chosen theme is added to the popup container as a CSS class in the form of .cc-style-THEME_NAME
+        comment: code200.eucookielawmadness::lang.settings.theme.comment
 
     palette:
-        label: Pallete
+        label: code200.eucookielawmadness::lang.settings.palette.label
         type: textarea
         default:  |
                   popup:{"background":"#edeff5","text":"#838391"},
                   button:{"background":"#4b81e8","text":"#edeff5"},
                   highlight: {background: '#ffffff', border: '#ffffff', text: '#838391'}
-        comment: This is the HTML for the elements above. Any word surrounded by ‘{{‘ and ‘}}’ will be automatically replaced. The string {{header}} will be replaced with the equivalent text above. You can remove “{{header}}” and write the content directly inside the HTML if you want.
+        comment: code200.eucookielawmadness::lang.settings.palette.comment
         size: small
 
     elements:
-        label: Elements template
+        label: code200.eucookielawmadness::lang.settings.elements.label
         type: textarea
         default:  |
                     header: '<span class="cc-header">{{header}}</span>&nbsp;',
@@ -94,12 +94,12 @@ fields:
                     deny: '<a aria-label="deny cookies" tabindex="0" class="cc-btn cc-deny">{{deny}}</a>',
                     link: '<a aria-label="learn more about cookies" tabindex="0" class="cc-link" href="{{href}}" target="_blank">{{link}}</a>',
                     close: '<span aria-label="dismiss cookie message" tabindex="0" class="cc-close">{{close}}</span>'
-        comment: This is the HTML for the elements above. Any word surrounded by ‘{{‘ and ‘}}’ will be automatically replaced. The string {{header}} will be replaced with the equivalent text above. You can remove “{{header}}” and write the content directly inside the HTML if you want.
+        comment: code200.eucookielawmadness::lang.settings.elements.comment
         size: large
 
     position:
-        label: Position
-        comment: Position is used to describe where on the screen your popup should display. We also use ‘position’ to assume the shape of your popup.
+        label: code200.eucookielawmadness::lang.settings.position.label
+        comment: code200.eucookielawmadness::lang.settings.position.comment
         type: dropdown
         options:
             top: top (banner)
@@ -111,22 +111,22 @@ fields:
         default: bottom
 
     compliance:
-        label: Complience template
+        label: code200.eucookielawmadness::lang.settings.compliance.label
         type: textarea
         default:  |
                   'info': '<div class="cc-compliance">{{dismiss}}</div>',
                   'opt-in': '<div class="cc-compliance cc-highlight">{{dismiss}}{{allow}}</div>',
                   'opt-out': '<div class="cc-compliance cc-highlight">{{deny}}{{dismiss}}</div>',
-        comment: If you want an ‘opt-in’ level of compliance, then you have two buttons where the default choice is ‘cookies are disable by default’. There are other levels of compliance too. The ones we have by default are stored in the ‘compliance’ option. You can see that the only difference between the compliance levels are the buttons which are used, and how cookies are handled by default
+        comment: code200.eucookielawmadness::lang.settings.compliance.comment
         size: small
 
     section_behaviour:
       type: section
-      label: Behaviour settings
+      label: code200.eucookielawmadness::lang.settings.section_behaviour.label
 
     type:
-      label: Complience type
-      comment: The compliance type, which refers to the compliance above. Please note the **standard cookie consent popup is purely informational**.
+      label: code200.eucookielawmadness::lang.settings.type.label
+      comment: code200.eucookielawmadness::lang.settings.type.comment
       type: dropdown
       options:
           info: info
@@ -136,61 +136,61 @@ fields:
 
     revokable:
         type: switch
-        label: Revokable
+        label: code200.eucookielawmadness::lang.settings.revokable.label
         default: false
-        comment: If set true, revoke button is displayed every time. If false, revoke button is only displayed for advanced compliance options (opt-in and opt-out) and in countries that require revokable consent. The latter can be disabled by regionalLaw below.
+        comment: code200.eucookielawmadness::lang.settings.revokable.comment
 
     revokeBtn:
-        label: Revoke button template
+        label: code200.eucookielawmadness::lang.settings.revokeBtn.label
         type: textarea
         default:  <div class="cc-revoke {{classes}}">Cookie Policy</div>
-        comment: This is the html for the revoke button. This only shows up after the user has selected their level of consent.
+        comment: code200.eucookielawmadness::lang.settings.revokeBtn.comment
         size: small
 
     static:
-        label: Static
+        label: code200.eucookielawmadness::lang.settings.static.label
         type: switch
         default: false
-        comment: The popup uses position fixed to stay in one place on the screen despite any scroll bars. This option makes the popup position static so it displays at the top of the page. A height animation has also been added by default so the popup doesn’t make the page jump, but gradually grows and fades in.
+        comment: code200.eucookielawmadness::lang.settings.static.comment
 
     dismissOnScroll:
-        label: Dismiss on scroll
+        label: code200.eucookielawmadness::lang.settings.dismissOnScroll.label
         type: number
         default: 0
-        comment: Set value greater than 0 as scroll range to enable.
+        comment: code200.eucookielawmadness::lang.settings.dismissOnScroll.comment
         span: auto
 
     dismissOnTimeout:
-        label: Dissmiss on timeout
+        label: code200.eucookielawmadness::lang.settings.dismissOnTimeout.label
         type: number
         default: 0
-        comment: Set value as time in milliseconds to autodismiss after set time.
+        comment: code200.eucookielawmadness::lang.settings.dismissOnTimeout.comment
         span: auto
 
     section_cookies:
       type: section
-      label: Cookie settings
+      label: code200.eucookielawmadness::lang.settings.section_cookies.label
 
     cookie_path:
-        label: Path
+        label: code200.eucookielawmadness::lang.settings.cookie_path.label
         type: text
         default: /
-        comment: The path for the consent cookie that Cookie Consent uses, to remember that users have consented to cookies. Use to limit consent to a specific path within your website.
+        comment: code200.eucookielawmadness::lang.settings.cookie_path.comment
 
     cookie_name:
-        label: Cookie name
+        label: code200.eucookielawmadness::lang.settings.cookie_name.label
         type: text
         default: cookieconsent_status
-        comment: Name of the cookie that keeps track of users choice
+        comment: code200.eucookielawmadness::lang.settings.cookie_name.comment
 
     cookie_domain:
-        label: Cookie domain
+        label: code200.eucookielawmadness::lang.settings.cookie_domain.label
         type: text
         default:
-        comment: You will probably want to leave this empty. The domain that the cookie ‘name’ belongs to. The cookie can only be read on this domain. Guide to cookie domains
+        comment: code200.eucookielawmadness::lang.settings.cookie_domain.comment
 
     cookie_expiryDays:
-        label: Expiry Days
+        label: code200.eucookielawmadness::lang.settings.cookie_expiryDays.label
         type: number
         default: 365
-        comment: The number of days Cookie Consent should store the user’s consent information for.
+        comment: code200.eucookielawmadness::lang.settings.cookie_expiryDays.comment

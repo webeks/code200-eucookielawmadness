@@ -66,50 +66,60 @@ class Plugin extends PluginBase
             ],
         ];
     }
-
+    
     private function initJs()
     {
-        $settings = new Settings();
-        $dismissOnScroll = empty($settings::get('dismissOnScroll'))?false:$settings::get('dismissOnScroll');
-        $dismissOnTimeout = empty($settings::get('dismissOnTimeout'))?false:$settings::get('dismissOnTimeout');
-        $static = empty($settings::get('static')) ? "false" : "true";
-        $revokable = empty($settings::get('revokable')) ? "false" : "true";
-        $revokeBtnTemplate = json_encode($settings::get('revokeBtn'));
+        // Check if the translate plugin is installed
+        if (class_exists('RainLab\Translate\Behaviors\TranslatableModel'))
+        {
+            $settings = Settings::instance();
+            foreach($settings as $key => $setting)
+            {
+                $setting = $settings->getAttributeTranslated($key);
+            }
+        } else {
+            $settings = Settings::instance();
+        }
+        $dismissOnScroll = empty($settings['dismissOnScroll'])?false:$settings['dismissOnScroll'];
+        $dismissOnTimeout = empty($settings['dismissOnTimeout'])?false:$settings['dismissOnTimeout'];
+        $static = empty($settings['static']) ? "false" : "true";
+        $revokable = empty($settings['revokable']) ? "false" : "true";
+        $revokeBtnTemplate = json_encode($settings['revokeBtn']);
         $initJS = <<<JS
 
         window.cookieconsent.initialise({
             content: {
-                "header":"{$settings::get('header')}",
-                "message":"{$settings::get('message')}",
-                "dismiss":"{$settings::get('dismiss')}",
-                "allow":"{$settings::get('allow')}",
-                "deny":"{$settings::get('deny')}",
-                "link":"{$settings::get('link')}",
-                "href":"{$settings::get('href')}"
+                "header":"{$settings['header']}",
+                "message":"{$settings['message']}",
+                "dismiss":"{$settings['dismiss']}",
+                "allow":"{$settings['allow']}",
+                "deny":"{$settings['deny']}",
+                "link":"{$settings['link']}",
+                "href":"{$settings['href']}"
             },
-            "position":"{$settings::get('position')}",
-            "container":"{$settings::get('container')}",
+            "position":"{$settings['position']}",
+            "container":"{$settings['container']}",
             "palette": {
-                {$settings::get('palette')}
+                {$settings['palette']}
             },
-            "theme":"{$settings::get('theme')}",
+            "theme":"{$settings['theme']}",
             "elements":{
-                {$settings::get('elements')}
+                {$settings['elements']}
             },
             "compliance": {
-                {$settings::get('compliance')}
+                {$settings['compliance']}
             },
-            "type":"{$settings::get('type')}",
+            "type":"{$settings['type']}",
             "revokable":{$revokable},
             "revokeBtn":{$revokeBtnTemplate},
             "static":{$static},
             "dismissOnScroll":"{$dismissOnScroll}",
             "dismissOnTimeout":"{$dismissOnTimeout}",
 
-            "cookie.path": "{$settings::get('cookie_path')}",
-            "cookie.name": "{$settings::get('cookie_name')}",
-            "cookie.domain": "{$settings::get('cookie_domain')}",
-            "cookie.expiryDays": "{$settings::get('cookie_expiryDays')}",
+            "cookie.path": "{$settings['cookie_path']}",
+            "cookie.name": "{$settings['cookie_name']}",
+            "cookie.domain": "{$settings['cookie_domain']}",
+            "cookie.expiryDays": "{$settings['cookie_expiryDays']}",
 
             onStatusChange: function(status, chosenBefore) {
                 if(status == 'deny'){
@@ -121,7 +131,7 @@ class Plugin extends PluginBase
         });
 
         function getCookieDomain() {
-            var cookieDomain = "{$settings::get("cookie_domain")}";
+            var cookieDomain = "{$settings['cookie_domain']}";
             if(cookieDomain.trim() == ""){
                 cookieDomain = window.location.hostname;
             }
@@ -129,7 +139,7 @@ class Plugin extends PluginBase
         }
 
         function getCookiePath() {
-            var cookiePath =  "{$settings::get('cookie_path')}";
+            var cookiePath =  "{$settings['cookie_path']}";
             if(cookiePath.trim() == "") {
                 cookiePath = "/";
             }
@@ -144,7 +154,7 @@ class Plugin extends PluginBase
             for (var i = 0; i < cookies.length; i++) {
                 var spcook =  cookies[i].split("=");
                 var cookieName = spcook[0].trim();
-                if(cookieName != '{$settings::get('cookie_name')}') {
+                if(cookieName != "{$settings['cookie_name']}") {
                      document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain="+cookieDomain+"; path="+cookiePath;
                      document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=."+cookieDomain+"; path="+cookiePath;
                 }
